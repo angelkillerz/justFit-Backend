@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const cors = require("cors");
 const bodyParser = require('body-parser');
 const firebaseAdmin = require('firebase-admin/app');
-const firebaseSecretConfig = require('../justfit-secret-config.json');
+const firebaseSecretConfig = require('./justfit-secret-config.json');
 
-const authenticator = require("../middlewares/authMiddleware");
-const activityRouter = require("../routes/activityRoutes");
-const goalRouter = require("../routes/goalRoutes");
-const userRouter = require("../routes/userRoutes");
-const statsRouter = require("../routes/statsRoutes");
-const authRouter = require("../routes/authRoutes");
+const authenticator = require("./middlewares/authMiddleware");
+const activityRouter = require("./routes/activityRoutes");
+const goalRouter = require("./routes/goalRoutes");
+const userRouter = require("./routes/userRoutes");
+const statsRouter = require("./routes/statsRoutes");
+const authRouter = require("./routes/authRoutes");
 
 require('dotenv').config()
 

@@ -54,10 +54,6 @@ exports.getTotalsUserActivityStatsAll = async (req, res) => {
             {
                 $match: {
                     userId: userId,
-                    dateTime: {
-                        $gte: moment().startOf('isoWeek').toDate(),
-                        $lte: moment().endOf('isoWeek').toDate()
-                    }
                 }
             },
             {
@@ -88,9 +84,6 @@ exports.getTotalsUserActivityStatsAll = async (req, res) => {
             countGoalsCancelled: goalData.countGoalsCancelled || 0,
             weeklyActivityTypeStats: weeklyActivityTypeResult,
         };
-
-        console.log("date start ", moment().startOf('isoWeek').toDate());
-        console.log("date start ", moment().endOf('isoWeek').toDate());
 
         console.log('Merged Result:', mergedResult);
         res.send(mergedResult);

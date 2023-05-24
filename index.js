@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 })
 
 
-app.get("/", (req ,res) => {
+app.get("/", (req, res) => {
     res.send("<h1>Server is fine.</h1>");
 })
 

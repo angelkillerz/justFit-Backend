@@ -133,7 +133,7 @@ exports.getTotalsUserActivityStatsByMonth = async (req, res) => {
       {
         $match: {
           userId: userId,
-          dateTime: { $gte: startOfMonth.toDate(), $lte: endOfMonth.toDate() }
+          deadline: { $gte: startOfMonth.toDate(), $lte: endOfMonth.toDate() }
         }
       },
       {
@@ -237,7 +237,7 @@ exports.getTotalsUserActivityStatsByDay = async (req, res) => {
       {
         $match: {
           userId: userId,
-          dateTime: { $gte: startOfDay.toDate(), $lte: endOfDay.toDate() }
+          deadline: { $gte: startOfDay.toDate(), $lte: endOfDay.toDate() }
         }
       },
       {
@@ -344,7 +344,7 @@ exports.getTotalsUserActivityStatsByWeek = async (req, res) => {
       {
         $match: {
           userId: userId,
-          dateTime: { $gte: startOfWeek.toDate(), $lte: endOfWeek.toDate() }
+          deadline: { $gte: startOfWeek.toDate(), $lte: endOfWeek.toDate() }
         }
       },
       {

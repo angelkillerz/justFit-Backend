@@ -30,15 +30,16 @@ app.use((req, res, next) => {
     next();
 })
 
+
+app.get("/", (req ,res) => {
+    res.send("<h1>Server is fine.</h1>");
+})
+
 app.use(authRouter); // for signup
 app.use(authenticator, userRouter);
 app.use(authenticator, activityRouter);
 app.use(authenticator, goalRouter);
 app.use(authenticator, statsRouter);
-
-app.get("/", (req ,res) => {
-    res.send("<h1>Server is fine.</h1>");
-})
 
 // Express and MongoDB initial.
 const start = async () => {

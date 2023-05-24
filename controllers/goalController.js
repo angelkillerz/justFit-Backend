@@ -31,7 +31,7 @@ exports.getGoal = async (req, res) => {
         // const data = await Goal.find({ userId });
         const data = await Goal.find({ userId }).sort({ status: -1 });
         console.log("get goal : ", data);
-        return res.status(200).json({ data });
+        return res.status(200).json(data);
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
@@ -57,7 +57,14 @@ exports.getGoalsByStatus = async (req, res) => {
     const userId = req.headers['x-user-id'];
     const { status } = req.params;
     try {
-        const goalsResult = await Goal.find({ userId, status });
+        console.log("Status : ", status);
+        let goalsResult;
+        if (status === "none") {
+            goalsResult = await Goal.find({ userId, status }).sort({ deadline: 1 });
+        } else {
+            goalsResult = await Goal.find({ userId, status });
+        }
+        console.log(goalsResult);
         res.json(goalsResult);
     } catch (error) {
         console.error('Error:', error);
